@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -30,8 +31,8 @@ class GoldChartActivity : AppCompatActivity() {
 
     private var goldRates: LinkedList<GoldRate> = LinkedList();
 
-    lateinit var chart7: LineChart;
     lateinit var chart30: LineChart;
+    lateinit var currentRateView: TextView;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +40,8 @@ class GoldChartActivity : AppCompatActivity() {
 
         queue = Volley.newRequestQueue(applicationContext);
 
-        chart7 = findViewById<View>(R.id.chart7gold) as LineChart
         chart30 = findViewById<View>(R.id.chart30gold) as LineChart
+        currentRateView = findViewById(R.id.goldCurrentRate)
 
         fetchNbpData()
     }
@@ -84,15 +85,10 @@ class GoldChartActivity : AppCompatActivity() {
     }
 
     private fun setupChart() {
-
+        currentRateView.text = goldRates.get(0).price.toString();
         // Pass copy since default List are mutable.......
         prepareDataForChart(chart30, goldRates.toTypedArray(), 30);
 
-        var last7Days = goldRates
-            .filter { rate -> rate.date.isAfter(ChronoLocalDate.from(LocalDate.now().minusDays(7))) }
-            .toTypedArray()
-
-        prepareDataForChart(chart7, last7Days, 7)
     }
 
     private fun prepareDataForChart(chart: LineChart, data: Array<GoldRate>, days: Int = 30) {

@@ -56,7 +56,7 @@ class CurrenciesListAdapter(var dataSet: Array<CurrencyDetails> ): RecyclerView.
         viewHolder.rateTextView.text = currency.rate.toString()
 
         viewHolder.increaseView.setImageResource(if(currency.increase) R.drawable.increase else R.drawable.decrease)
-        viewHolder.flagImageView.setImageResource(World.getFlagOf(country.id))
+        viewHolder.flagImageView.setImageResource(FlagData.getFlag(currency.currencyCode))
 
         viewHolder.itemView.setOnClickListener{ _ -> goToDetails(viewHolder.itemView.context, currency.currencyCode, currency.table)}
 

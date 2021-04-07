@@ -13,9 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KonradPodogrski_NBP">
-        <activity android:name=".CurrencyExchangeActivity"></activity>
-        <activity android:name=".GoldChartActivity" />
-        <activity android:name=".CurrencyChartActivity" />
+        <activity android:name=".CurrencyExchangeActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".GoldChartActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".CurrencyChartActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".CurrenciesActivity"
             android:parentActivityName=".MainActivity" />

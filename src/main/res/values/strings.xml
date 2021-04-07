@@ -11,4 +11,7 @@
     <string name="toOther">From Pln...</string>
     <string name="convert">Convert!</string>
     <string name="convertToSee">Convert to see</string>
+    <string name="gold_30_days">gold 30 days</string>
+    <string name="current_rate">Current rate:</string>
+    <string name="current_rate_amount">0.0</string>
 </resources>

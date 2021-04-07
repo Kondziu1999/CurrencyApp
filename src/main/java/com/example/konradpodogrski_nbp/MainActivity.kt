@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         converterBtn.setOnClickListener{fetchNbpData({navigateToExchange()})}
 
         World.init(getApplicationContext())
+        FlagData.init(getApplicationContext())
     }
 
     private fun switchLoadingInfo() {
